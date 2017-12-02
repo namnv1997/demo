@@ -80,10 +80,12 @@
                 console.log("req " + namereq);
                 history = localStorage.getItem(namereq);
                 console.log("his : " + history);
-                // fruits.forEach(function () {
-                //     console.log(item, index);
-                // });
-                $('#messages').append($('<li>').html("".concat(...history)));
+                var his = history.split(',');
+                his.forEach(function (hi) {
+                    console.log(hi);
+                    $('#messages').append($('<li>').html(hi));
+                });
+                
                 return false;
             });
 
