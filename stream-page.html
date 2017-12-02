@@ -56,6 +56,7 @@
             $('#stream').submit(function () {
                 socket.emit('new user online', $('#streamname').val());
                 nameChatStream = $('#streamname').val();
+                console.log(nameChatStream);
                 return false;
             });
 
@@ -82,7 +83,7 @@
                 var his = history.split('*/,');
                 his.forEach(function (hi) {
                     console.log(hi);
-                    $('#nameChatStream').append($('<li>').html(hi));
+                    $('#messages').append($('<li>').html(hi));
                 });
                 
                 return false;
@@ -203,7 +204,7 @@
                             return false;
                         });
                         socket.on('chat message', function (msg) {
-                            $('#nameChatStream').append($('<li>').html(msg));
+                            $('#messages').append($('<li>').html(msg));
                         });
                     });
                 </script>
@@ -213,7 +214,7 @@
                     <p>Chat Room</p>
                 </div>
                 <div id="chat-box-section">
-                    <ul id=nameChatStream></ul>
+                    <ul id="messages"></ul>
                 </div>
                 <div id="chat-box-form-wrapper">
                     <form name="streamForm" action="#" id="chat-box-form">
