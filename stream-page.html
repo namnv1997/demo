@@ -56,8 +56,10 @@
             $('#stream').submit(function () {
                 socket.emit('new user online', $('#streamname').val());
                 nameChatStream = $('#streamname').val();
+                console.log(nameChatStream);
                 return false;
             });
+
             socket.on('list user', function (users) {
                 users.forEach(function (element) {
                     $('#userOnline').append(`<li id="${element}">${element}</li>`);
@@ -193,7 +195,7 @@
                         var socket = io("https://serveruserstream.herokuapp.com/");
                         $('#chat-box-form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
-                            var temp = namex + " : " + $('#m').val();
+                            var temp = $('#m').val();
                             chatHistory.push(temp);
                             console.log("his0" + chatHistory[0]);
                             console.log("his1" + chatHistory[1]);
