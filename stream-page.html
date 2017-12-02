@@ -56,7 +56,6 @@
             $('#stream').submit(function () {
                 socket.emit('new user online', $('#streamname').val());
                 nameChatStream = $('#streamname').val();
-                console.log(nameChatStream);
                 return false;
             });
 
@@ -75,10 +74,8 @@
             });
 
             $('#watch').submit(function () {
-                nameChatStream = $('#streamwatch').val();
                 var history = [];
                 var namereq = $('#streamwatch').val();
-                console.log("req " + namereq);
                 history = localStorage.getItem(namereq) + ",";
                 console.log("his : " + history);
                 var his = history.split('*/,');
@@ -87,6 +84,7 @@
                     $('#messages').append($('<li>').html(hi));
                 });
                 
+                chatHistory += localStorage.getItem(namereq);
                 return false;
             });
 
