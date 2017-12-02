@@ -83,7 +83,7 @@
                 // fruits.forEach(function () {
                 //     console.log(item, index);
                 // });
-                $('#messages').append($('<li>').text(history));
+                $('#messages').append($('<li>').html(history[0]));
                 return false;
             });
 
@@ -196,10 +196,8 @@
                         var socket = io("https://serveruserstream.herokuapp.com/");
                         $('#chat-box-form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
-                            var temp = $('#m').val();
+                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val();
                             chatHistory.push(temp);
-                            console.log("his0" + chatHistory[0]);
-                            console.log("his1" + chatHistory[1]);
                             localStorage.setItem(nameChatStream, chatHistory);
                             return false;
                         });
