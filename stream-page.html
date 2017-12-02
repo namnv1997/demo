@@ -74,10 +74,9 @@
             });
 
             $('#watch').submit(function () {
-                var history = [];
+                var history, hist = [];
                 var namereq = $('#streamwatch').val();
                 history = localStorage.getItem(namereq) + ",";
-                console.log("his : " + history);
                 var his = history.split('*/,');
                 his.forEach(function (hi) {
                     console.log(hi);
@@ -85,7 +84,8 @@
                 });
                 
                 nameChatStream = $('#streamwatch').val();
-                chatHistory = localStorage.getItem(namereq);
+                hist= localStorage.getItem(namereq);
+                history.push(hist);
                 return false;
             });
 
