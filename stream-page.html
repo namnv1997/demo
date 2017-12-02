@@ -190,7 +190,7 @@
                         var socket = io("https://serveruserstream.herokuapp.com/");
                         $('form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
-                            var temp = text('<b>' + namex + '</b>' + " : " + $('#m').val());
+                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val();
                             chatHistory.push(temp);
                             console.log("temp" + temp);
                             localStorage.setItem(nameChatStream, chatHistory);
@@ -198,7 +198,7 @@
                         });
                         socket.on('chat message', function (msg) {
                             $('#messages').append($('<li>').html(msg));
-                            
+
                         });
                     });
                 </script>
