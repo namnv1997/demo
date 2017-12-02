@@ -76,7 +76,7 @@
 
             $('#watch').submit(function () {
                 var history = [];
-                var namereq = $('#number').val();
+                var namereq = $('#streamwatch').val();
                 console.log("req " + namereq);
                 history = localStorage.getItem(namereq);
                 console.log("his : " + history);
@@ -170,7 +170,7 @@
                 </form>
                 <form name="watchForm" id="watch" action="#" onsubmit="return errWrap(watch,this);">
                     <span class="input input--nao">
-                        <input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!" />
+                        <input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!" id="streamwatch"/>
                         <label class="input__label input__label--nao">
                             <span class="input__label-content input__label-content--nao">
                             </span>
