@@ -77,6 +77,7 @@
             $('#watch').submit(function () {
                 var history = [];
                 var namereq = $('#number').val();
+                console.log("req " + namereq);
                 history = localStorage.getItem(namereq);
                 console.log("his : " + history);
                 // fruits.forEach(function () {
