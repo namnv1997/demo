@@ -80,7 +80,7 @@
                 console.log("req " + namereq);
                 history = localStorage.getItem(namereq);
                 console.log("his : " + history);
-                fruits.forEach(function (his) {
+                history.forEach(function (his) {
                     $('#messages').append($('<li>').html(his));
                 });
                
