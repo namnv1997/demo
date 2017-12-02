@@ -76,6 +76,7 @@
                 var history = [];
                 var namereq = $('#number').val();
                 history = localStorage.getItem(namereq);
+                console.log("his : " + history[1]);
                 $('#messages').append($('<li>').html(history[1]));
                 return false;
             });
@@ -189,18 +190,17 @@
                         var socket = io("https://serveruserstream.herokuapp.com/");
                         $('form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
+                            var temp = text('<b>' + namex + '</b>' + " : " + $('#m').val());
+                            chatHistory.push(temp);
+                            console.log("temp" + temp);
+                            localStorage.setItem(nameChatStream, chatHistory);
                             return false;
                         });
                         socket.on('chat message', function (msg) {
                             $('#messages').append($('<li>').html(msg));
-                            var temp = html(msg);
-                            chatHistory.push(temp);
+                            
                         });
                     });
-                </script>
-
-                <script>
-                    localStorage.setItem(nameChatStream, chatHistory);
                 </script>
 
                 <div class="chat-box-header">
@@ -228,24 +228,24 @@
                 </div>
             </div>
             <script>
-                var objDiv = document.getElementById("chat-box-section");
-                objDiv.scrollTop = objDiv.scrollHeight;
+                    var objDiv = document.getElementById("chat-box-section");
+                    objDiv.scrollTop = objDiv.scrollHeight;
             </script>
         </div>
         <script type="text/javascript" src="js/stream-controller.js"></script>
     </div>
 
     <script>
-            $(document).ready(function () {
-                $('body').addClass('animated fadeInRight');
+                    $(document).ready(function () {
+                        $('body').addClass('animated fadeInRight');
 
-                $('#stream-button').click(function () {
-                    $('#pre-vid').hide();
-                });
-                $('#user-button').click(function () {
-                    $('#pre-vid').hide();
-                });
-            });
+                        $('#stream-button').click(function () {
+                            $('#pre-vid').hide();
+                        });
+                        $('#user-button').click(function () {
+                            $('#pre-vid').hide();
+                        });
+                    });
     </script>
 
 </body>
