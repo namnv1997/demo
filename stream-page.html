@@ -191,7 +191,7 @@
                         console.log("get" + namex);
 
                         var socket = io("https://serveruserstream.herokuapp.com/");
-                        $('form').submit(function () {
+                        $('#chat-box-button').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
                             var temp = '<b>' + namex + '</b>' + " : " + $('#m').val();
                             chatHistory.push(temp);
