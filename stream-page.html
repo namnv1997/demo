@@ -80,10 +80,10 @@
                 console.log("req " + namereq);
                 history = localStorage.getItem(namereq);
                 history.forEach(function (his) {
-                    console.log("element: " +his);
+                    console.log("element: " + his);
                     $('#messages').append($('<li>').html(his));
                 });
-               
+
                 return false;
             });
 
@@ -170,7 +170,8 @@
                 </form>
                 <form name="watchForm" id="watch" action="#" onsubmit="return errWrap(watch,this);">
                     <span class="input input--nao">
-                        <input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!" id="streamwatch"/>
+                        <input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!" id="streamwatch"
+                        />
                         <label class="input__label input__label--nao">
                             <span class="input__label-content input__label-content--nao">
                             </span>
@@ -196,7 +197,7 @@
                         var socket = io("https://serveruserstream.herokuapp.com/");
                         $('#chat-box-form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
-                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val() ;
+                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val();
                             chatHistory.push(temp);
                             localStorage.setItem(nameChatStream, chatHistory);
                             return false;
