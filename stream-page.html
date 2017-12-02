@@ -83,7 +83,7 @@
                 // fruits.forEach(function () {
                 //     console.log(item, index);
                 // });
-                $('#messages').append($('<li>').html(history.concat(",")));
+                $('#messages').append($('<li>').html("".concat(...history)));
                 return false;
             });
 
