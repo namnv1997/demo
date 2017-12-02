@@ -80,7 +80,7 @@
                 console.log("req " + namereq);
                 history = localStorage.getItem(namereq);
                 console.log("his : " + history);
-                var his = history.split(',');
+                var his = history.split('*/,');
                 his.forEach(function (hi) {
                     console.log(hi);
                     $('#messages').append($('<li>').html(hi));
@@ -198,7 +198,7 @@
                         var socket = io("https://serveruserstream.herokuapp.com/");
                         $('#chat-box-form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
-                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val()  + '</br>' ;
+                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val()  + '</br>' + '*/' ;
                             chatHistory.push(temp);
                             localStorage.setItem(nameChatStream, chatHistory);
                             return false;
