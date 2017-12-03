@@ -203,7 +203,7 @@
                             var temp = '<b>' + namex + '</b>' + " : " + $('#m').val()  + '*/' ;
                             chatHistory.push(temp);
                             console.log("chat his push :" +chatHistory);
-                            localStorage.setItem(nameChatStream, chatHistory);
+                            // localStorage.setItem(nameChatStream, chatHistory);
                             return false;
                         });
                         socket.on('chat message', function (msg) {
