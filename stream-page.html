@@ -16,8 +16,6 @@
     <script src="vendor/js/bootstraps/bootstrap.min.js"></script>
     <script src="js/fb.js"></script>
     <script>
-        var nameChatStream;
-        var chatHistory = [];
         window.fbAsyncInit = function () {
             FB.init({
                 appId: '1312200818884269',
@@ -50,6 +48,8 @@
 
     <script src="https://serveruserstream.herokuapp.com/socket.io/socket.io.js"></script>
     <script>
+        var nameChatStream;
+        var chatHistory = [];
         $(function () {
             var socket = io("https://serveruserstream.herokuapp.com/");
             $('#stream').submit(function () {
