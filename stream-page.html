@@ -73,23 +73,25 @@
                 $('#userOnline').append(`<li id="${user}">${user}</li>`);
             });
 
-            // $('#watch').submit(function () {
-            //     var history, hist = [];
-            //     var namereq = $('#streamwatch').val();
-            //     history = localStorage.getItem(namereq) + ",";
-            //     var his = history.split('*/,');
-            //     his.forEach(function (hi) {
-            //         console.log(hi);
-            //         $('#messages').append($('<li>').html(hi));
-            //     });
-                
-            //     // nameChatStream = $('#streamwatch').val();
-            //     hist = localStorage.getItem(namereq);
-            //     chatHistory = hist;
-            //     console.log("historty chat: " +chatHistory);
-            //     return false;
-            // });
+        });
+    </script>
+    <script>
 
+        $('#watch').submit(function () {
+            var history, hist = [];
+            var namereq = $('#streamwatch').val();
+            history = localStorage.getItem(namereq) + ",";
+            var his = history.split('*/,');
+            his.forEach(function (hi) {
+                console.log(hi);
+                $('#messages').append($('<li>').html(hi));
+            });
+
+            nameChatStream = $('#streamwatch').val();
+            hist = localStorage.getItem(namereq);
+            chatHistory = hist;
+            console.log("historty chat: " + chatHistory);
+            return false;
         });
     </script>
 </head>
@@ -173,7 +175,8 @@
                 </form>
                 <form name="watchForm" id="watch" action="#" onsubmit="return errWrap(watch,this);">
                     <span class="input input--nao">
-                        <input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!" id="streamwatch"/>
+                        <input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!" id="streamwatch"
+                        />
                         <label class="input__label input__label--nao">
                             <span class="input__label-content input__label-content--nao">
                             </span>
@@ -200,9 +203,9 @@
 
                         $('#chat-box-form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
-                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val()  + '*/' ;
+                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val() + '*/';
                             chatHistory.push(temp);
-                            console.log("chat his push :" +chatHistory);
+                            console.log("chat his push :" + chatHistory);
                             localStorage.setItem(nameChatStream, chatHistory);
                             return false;
                         });
