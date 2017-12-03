@@ -50,7 +50,6 @@
 
     <script src="https://serveruserstream.herokuapp.com/socket.io/socket.io.js"></script>
     <script>
-
         $(function () {
             var socket = io("https://serveruserstream.herokuapp.com/");
             $('#stream').submit(function () {
@@ -76,22 +75,23 @@
         });
     </script>
     <script>
+        $(document).ready(function () {
+            $('#watch').submit(function () {
+                var history, hist = [];
+                var namereq = $('#streamwatch').val();
+                history = localStorage.getItem(namereq) + ",";
+                var his = history.split('*/,');
+                his.forEach(function (hi) {
+                    console.log(hi);
+                    $('#messages').append($('<li>').html(hi));
+                });
 
-        $('#watch').submit(function () {
-            var history, hist = [];
-            var namereq = $('#streamwatch').val();
-            history = localStorage.getItem(namereq) + ",";
-            var his = history.split('*/,');
-            his.forEach(function (hi) {
-                console.log(hi);
-                $('#messages').append($('<li>').html(hi));
+                nameChatStream = $('#streamwatch').val();
+                hist = localStorage.getItem(namereq);
+                chatHistory = hist;
+                console.log("historty chat: " + chatHistory);
+                return false;
             });
-
-            nameChatStream = $('#streamwatch').val();
-            hist = localStorage.getItem(namereq);
-            chatHistory = hist;
-            console.log("historty chat: " + chatHistory);
-            return false;
         });
     </script>
 </head>
