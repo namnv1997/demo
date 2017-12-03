@@ -50,6 +50,8 @@
     <script>
         var nameChatStream;
         var chatHistory = [];
+    </script>
+    <script>
         $(function () {
             var socket = io("https://serveruserstream.herokuapp.com/");
             $('#stream').submit(function () {
@@ -88,7 +90,7 @@
 
                 nameChatStream = $('#streamwatch').val();
                 hist = localStorage.getItem(namereq);
-                chatHistory = hist;
+                chatHistory.push(hist);
                 console.log("historty chat: " + chatHistory);
                 return false;
             });
