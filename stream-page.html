@@ -83,9 +83,8 @@
                     $('#messages').append($('<li>').html(hi));
                 });
                 
-                nameChatStream = $('#streamwatch').val();
+                // nameChatStream = $('#streamwatch').val();
                 hist = localStorage.getItem(namereq);
-                console.log("hist " + hist);
                 chatHistory = hist;
                 console.log("historty chat: " +chatHistory);
                 return false;
@@ -198,6 +197,7 @@
                         console.log("get" + namex);
 
                         var socket = io("https://serveruserstream.herokuapp.com/");
+
                         $('#chat-box-form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
                             var temp = '<b>' + namex + '</b>' + " : " + $('#m').val()  + '*/' ;
