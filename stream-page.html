@@ -50,8 +50,6 @@
     <script>
         var nameChatStream;
         var chatHistory = [];
-    </script>
-    <script>
         $(function () {
             var socket = io("https://serveruserstream.herokuapp.com/");
             $('#stream').submit(function () {
@@ -74,10 +72,6 @@
                 $('#userOnline').append(`<li id="${user}">${user}</li>`);
             });
 
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
             $('#watch').submit(function () {
                 var history, hist = [];
                 var namereq = $('#streamwatch').val();
