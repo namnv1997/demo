@@ -73,22 +73,22 @@
                 $('#userOnline').append(`<li id="${user}">${user}</li>`);
             });
 
-            $('#watch').submit(function () {
-                var history, hist = [];
-                var namereq = $('#streamwatch').val();
-                history = localStorage.getItem(namereq) + ",";
-                var his = history.split('*/,');
-                his.forEach(function (hi) {
-                    console.log(hi);
-                    $('#messages').append($('<li>').html(hi));
-                });
+            // $('#watch').submit(function () {
+            //     var history, hist = [];
+            //     var namereq = $('#streamwatch').val();
+            //     history = localStorage.getItem(namereq) + ",";
+            //     var his = history.split('*/,');
+            //     his.forEach(function (hi) {
+            //         console.log(hi);
+            //         $('#messages').append($('<li>').html(hi));
+            //     });
                 
-                // nameChatStream = $('#streamwatch').val();
-                hist = localStorage.getItem(namereq);
-                chatHistory = hist;
-                console.log("historty chat: " +chatHistory);
-                return false;
-            });
+            //     // nameChatStream = $('#streamwatch').val();
+            //     hist = localStorage.getItem(namereq);
+            //     chatHistory = hist;
+            //     console.log("historty chat: " +chatHistory);
+            //     return false;
+            // });
 
         });
     </script>
@@ -203,7 +203,7 @@
                             var temp = '<b>' + namex + '</b>' + " : " + $('#m').val()  + '*/' ;
                             chatHistory.push(temp);
                             console.log("chat his push :" +chatHistory);
-                            // localStorage.setItem(nameChatStream, chatHistory);
+                            localStorage.setItem(nameChatStream, chatHistory);
                             return false;
                         });
                         socket.on('chat message', function (msg) {
