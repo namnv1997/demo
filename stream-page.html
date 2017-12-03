@@ -202,6 +202,7 @@
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
                             var temp = '<b>' + namex + '</b>' + " : " + $('#m').val()  + '*/' ;
                             chatHistory.push(temp);
+                            console.log("chat his push :" +chatHistory);
                             localStorage.setItem(nameChatStream, chatHistory);
                             return false;
                         });
