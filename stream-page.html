@@ -71,23 +71,6 @@
             socket.on('new user online', function (user) {
                 $('#userOnline').append(`<li id="${user}">${user}</li>`);
             });
-
-            $('#watch').submit(function () {
-                var history, hist = [];
-                var namereq = $('#streamwatch').val();
-                history = localStorage.getItem(namereq) + ",";
-                var his = history.split('*/,');
-                his.forEach(function (hi) {
-                    console.log(hi);
-                    $('#messages').append($('<li>').html(hi));
-                });
-
-                nameChatStream = $('#streamwatch').val();
-                hist = localStorage.getItem(namereq);
-                chatHistory.push(hist);
-                console.log("historty chat: " + chatHistory);
-                return false;
-            });
         });
     </script>
 </head>
@@ -199,10 +182,6 @@
 
                         $('#chat-box-form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
-                            var temp = '<b>' + namex + '</b>' + " : " + $('#m').val() + '*/';
-                            chatHistory.push(temp);
-                            console.log("chat his push :" + chatHistory);
-                            localStorage.setItem(nameChatStream, chatHistory);
                             return false;
                         });
                         socket.on('chat message', function (msg) {
