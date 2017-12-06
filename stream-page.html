@@ -182,6 +182,7 @@
 
                         $('#chat-box-form').submit(function () {
                             socket.emit('chat message', '<b>' + namex + '</b>' + " : " + $('#m').val());
+                            $('#m').val();
                             return false;
                         });
                         socket.on('chat message', function (msg) {
